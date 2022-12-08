@@ -47,12 +47,6 @@ const mockFile = JSON.stringify({
   ],
 });
 
-// Exercicios do dia
-
-
-
-
-
 describe('Testando a API Cacau Trybe', function () {
   beforeEach(function () {
     sinon.stub(fs.promises, 'readFile')
@@ -153,5 +147,16 @@ describe('Usando o método GET em /chocolates/brand/:brandId para buscar brandId
       },
     ]);
   });
+});
+// Exercicios do dia
+
+describe.only('Utilizando o método GET em /chocolates/total', function () {
+  it('Retorna a quantidade total de chocolates', async function () {
+    const response = await chai.request(app)
+      .get('/chocolates/total');
+
+    expect(response).to.have.status(200);
+    expect(response.body).to.deep.equal({ totalChocolates: 4 });
+});
 });
 });
