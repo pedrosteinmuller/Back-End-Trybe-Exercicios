@@ -28,3 +28,8 @@ export function triangleCheck(
 export function getLosangoArea(D: number, d: number): number {
   return (D * d) / 2;
 }
+
+export function getTrapezioArea(B: number, b: number, h: number): number {
+  return ((B + b) * h) / 2
+}
+
