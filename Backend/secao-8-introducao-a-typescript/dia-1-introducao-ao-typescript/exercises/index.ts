@@ -38,3 +38,7 @@ console.log(`- Losango que tem D = 75cm e d = 25cm: ${Ex.getLosangoArea(75, 25)}
 console.log(`- Trapézio com base maior igual a 100cm, base menor igual a 70cm e altura igual a 50cm: ${Ex.getTrapezioArea(100, 70, 50)}cm²`);
 console.log(`- Trapézio com base maior igual a 75cm, base menor igual a 50cm e altura igual a 35cm: ${Ex.getTrapezioArea(75, 50, 35)}cm²`);
 console.log(`- Trapézio com base maior igual a 150cm, base menor igual a 120cm e altura igual a 80cm: ${Ex.getTrapezioArea(150, 120, 80)}cm²`);
+
+console.log(`- Círculo de raio 10cm: ${Ex.getCircleArea(10)}cm²`);
+console.log(`- Círculo de raio 5cm: ${Ex.getCircleArea(5)}cm²`);
+console.log(`- Círculo de raio 100cm: ${Ex.getCircleArea(100)}cm²`);

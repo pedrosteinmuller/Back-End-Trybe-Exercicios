@@ -33,3 +33,6 @@ export function getTrapezioArea(B: number, b: number, h: number): number {
   return ((B + b) * h) / 2
 }
 
+export function getCircleArea(radius: number): number {
+  return Math.PI * radius ** 2;
+}
