@@ -1,0 +1,24 @@
+{
+  "name": "dia-2-tipagem-estatica-generics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/readline-sync": "1.4",
+    "@types/sequelize": "4.28",
+    "dotenv": "10.0",
+    "readline-sync": "1.4",
+    "sequelize": "6.3"
+  },
+  "devDependencies": {
+    "@types/node": "18.11",
+    "mysql2": "2.3",
+    "sequelize-cli": "6.2"
+  }
+}
