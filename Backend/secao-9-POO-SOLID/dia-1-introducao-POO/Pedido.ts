@@ -58,4 +58,17 @@ export default class Order {
 
     this._desconto = value;
   }
+
+  calculaValorTotal(): number {
+    let total = 0;
+    const itemsValue = this.items;
+    for (let value of itemsValue) {
+      total += value.preco;
+    }
+    return total;
+  }
+
+  calculaComDesconto(): number {
+    return this.calculaValorTotal() * (1 - this.desconto);
+  }
 }
