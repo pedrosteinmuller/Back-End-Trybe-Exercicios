@@ -4,11 +4,11 @@ class Students {
   private _notasProva: number[];
   private _notasTrabalho: number[];
 
-  constructor(matricula: string, nome: string) {
+  constructor(matricula: string, nome: string, notasProva = [], notasTrabalho = []) {
     this._matricula = matricula;
     this._nome = nome;
-    this._notasProva = [];
-    this._notasTrabalho = [];
+    this._notasProva = notasProva;
+    this._notasTrabalho = notasTrabalho;
   }
   get matricula (): string { return this._matricula; };
   set matricula(value: string) { this._matricula = value }
@@ -35,11 +35,29 @@ class Students {
     };
     this._notasTrabalho = value;
   }
+
+  somaNotas(): number {
+    const todasNotas = [...this.notasProva, ...this.notasTrabalho]
+    console.log('aquiu', todasNotas);
+    
+    let total = 0;
+    for (let grade of todasNotas) {
+      total += grade;
+    }
+    return total;
+  }
+  mediaNotas(): number {
+    const valorTotal = this.somaNotas();
+    const divisor = this.notasProva.length + this.notasTrabalho.length;
+    return Math.round(valorTotal / divisor );
+  }
 }
 const personOne = new Students('202001011', 'Maria da Silva');
 
+personOne.notasProvas = [10, 20, 30, 50];
+personOne.notasTrabalho = [20, 50];
+
 console.log(personOne);
+console.log('Soma todas as notas', personOne.somaNotas());
+console.log('Média das notas', personOne.mediaNotas());
 
-const personTwo = new Students('202001012', 'João da Silva');
-
-console.log(personTwo);
