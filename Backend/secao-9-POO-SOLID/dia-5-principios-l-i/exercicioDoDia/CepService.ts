@@ -1,18 +1,16 @@
-import FooCepAPI from '../exercicioDoDia/FooCepApi';
+import { ICep } from '../exercicioDoDia/ICep';
 
-class CepService {
-  private readonly cepApi: FooCepAPI;
+class CepService implements ICep {
+  private readonly cepApi: ICep;
 
-  constructor(cepApi: FooCepAPI) {
+  constructor(cepApi: ICep) {
     this.cepApi = cepApi;
   }
-
-  addressByCep(cep: string, num: number) {
-    return this.cepApi.getAddressByCEP(cep, num);
+  getAddressByCEP(cep: string, number: number): Promise<string> {
+    return this.cepApi.getAddressByCEP(cep, number)
   }
-
-  cepByAddress(address: string, num: number) {
-    return this.cepApi.getCepByAddress(address, num);
+  getCepByAddress(address: string, number: number): Promise<string> {
+    return this.cepApi.getCepByAddress(address, number);
   }
 }
 

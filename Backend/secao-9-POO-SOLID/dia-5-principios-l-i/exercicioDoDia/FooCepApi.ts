@@ -1,4 +1,6 @@
-class FooCepAPI {
+import { ICep } from "./ICep";
+
+class FooCepAPI implements ICep {
   async getAddressByCEP(cep: string, number: number): Promise<string> {
     return `O endereço para o "CEP:${cep}, n°:${number}" é "endereço foo"`;
   }

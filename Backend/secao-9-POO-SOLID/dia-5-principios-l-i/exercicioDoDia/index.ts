@@ -1,18 +1,19 @@
 import CepService from './CepService';
-import FooCepAPI from './FooCepApi';
+// import FooCepAPI from './FooCepApi';
+import MockCepApi from './MockCepApi';
 
 async function main() {
-  const cepSvc = new CepService(new FooCepAPI);
+  const cepSvc = new CepService(new MockCepApi);
 
   console.log(
     'get address by cep', 
     '->', 
-    await cepSvc.addressByCep('xx.xxx-xx', 10),
+    await cepSvc.getAddressByCEP('xx.xxx-xx', 10),
   );
   console.log(
     'get cep by address', 
     '->', 
-    await cepSvc.cepByAddress('street foo, between bar and baz', 10),
+    await cepSvc.getCepByAddress('street foo, between bar and baz', 10),
   );
 }
 
