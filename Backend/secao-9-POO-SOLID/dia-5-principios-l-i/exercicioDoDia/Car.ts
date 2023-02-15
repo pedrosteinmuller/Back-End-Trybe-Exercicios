@@ -1,6 +1,16 @@
 import { IVehicle } from './interfaces';
 
-export default class Car implements IVehicle {
+class AirPlane implements IVehicle {
+  drive(): void {
+    throw new Error('I don\'t drive');
+  }
+
+  fly(): void {
+    console.log('Fly a airplane');
+  }
+}
+
+class Car implements IVehicle {
   drive(): void {
     console.log('Drive a car');
   }
@@ -8,4 +18,9 @@ export default class Car implements IVehicle {
   fly(): void {
     throw new Error('I don\'t fly');
   }
+}
+
+export default {
+  Car,
+  AirPlane
 }
