@@ -1,0 +1,10 @@
+version: '5'
+
+services:
+
+  mongo:
+    image: mongo
+    ports:
+     - 8080:27017
+    volumes:
+      - ./backup:/data/db
