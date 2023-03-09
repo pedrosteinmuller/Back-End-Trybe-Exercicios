@@ -1,0 +1,30 @@
+// O valor retornado deve ser 60, que é a quantidade de documentos nesta coleção. Agora utilize os operadores de comparação para resolver os desafios de 1 a 5.
+
+db.restaurants.countDocuments({ borough: { $in: ["Queens", "Staten Island", "Bronx"] } });
+db.restaurants.countDocuments({ cuisine: { $ne: "American" } });
+db.restaurants.countDocuments({ rating: { $gte: 8 } });
+db.restaurants.countDocuments({ rating: { $lt: 4 } });
+db.restaurants.countDocuments({ rating: { $nin: [5, 6, 7] } });
+
+// Faça os desafios de 1 a 5 abaixo, sobre os operadores lógicos utilizando a coleção restaurants criada no tópico anterior.
+
+db.restaurants.countDocuments({ rating: { $not: { $lte: 5 } }});
+db.restaurants.countDocuments({ $or: [{ rating: { $gte: 6 } }, { borough: "Brooklyn" }] });
+db.restaurants.countDocuments({ $and: [{ borough: { $in: ["Queens", "Staten Island", "Bronx"] } }, { rating: { $gt: 4 } }] });
+db.restaurants.countDocuments({ $nor: [{ rating: { $eq: 1 } }, { cuisine: "American" }] });
+db.restaurants.countDocuments({ $or: [{ rating: { $gt: 6 } }, { borough: "Brooklyn" }] });
+db.restaurants.countDocuments({
+    $and: [
+      { $or: [{ rating: { $gt: 6, $lt: 10 } }] },
+      { $or: [{ borough: 'Brooklyn' }, { cuisine: { $ne: 'Delicatessen' } }] },
+    ],
+  });
+// Faça os desafios 1 e 2 abaixo sobre o sort() utilizando a coleção restaurants criada anteriormente.
+
+  db.restaurants.find().sort({ "name" : 1}).pretty();
+  db.restaurants.find().sort({ "rating" : -1 }).pretty();
+
+// Faça os desafios 1 e 2 abaixo, sobre remoção de documentos utilizando a coleção restaurants criada anteriormente.
+
+db.restaurants.deleteOne({ cuisine: "Ice Cream, Gelato, Yogurt, Ices" });
+db.restaurants.deleteMany({ cuisine: "American" });
